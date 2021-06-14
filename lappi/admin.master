@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TOP DESK-ADMIN</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+                  
+    body {
+    font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+    height:100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 50px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 30px;
+    text-decoration:none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    /*transition: 0.1s;*/
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+.navbar-light .navbar-brand {
+    color: #fff;
+    position: relative;
+    font-weight: 999;
+    font-size: xx-large;
+    font-family: sans-serif;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "230px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</head>
+<body style="background-image:url(Site_images/background.jpg);background-repeat:no-repeat;
+	background-size: cover;
+	background-attachment: fixed;">
+    <form id="form1" runat="server" >
+            <div class="tinkesh">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="height:45px">
+               <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color:White;">&times;</a>
+                    <a href="addcategory.aspx" style="color:White">ADD CATEGORY</a><br />
+                    <a href="addattribute.aspx" style="color:White">ADD ATTRIBUTE</a><br />
+                    <a href="addtype.aspx" style="color:White">ADD TYPE</a><br />
+                    <a href="addproduct.aspx" style="color:White">ADD PRODUCT</a><br />
+                    <a href="view_enquiry.aspx" style="color:White">VIEW ENQUIRIES</a><br />
+                    <a href="view_feedback.aspx" style="color:White">VIEW FEEDBACK</a><br />
+                </div>
+                <div>   
+                
+                <!-- --------------------what to do with &nbsp ???-----below------------------------------ -->
+                
+                
+                    <span style="font-size:25px;color:Gray;cursor:pointer" onclick="openNav()">☰</span>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                
+                <!-- ______________here______________  -->
+                
+                
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="addproduct.aspx">
+                            <img src="Site_images/topdesk_logo.png" style="display: inline-block;"/></a>
+                                        <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                            <span class="navbar-toggler-icon"></span>
+                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+                                        </button>--%>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item ml-md-auto dropdown" id="ddl_logout">
+                            <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <asp:Label ID="Label_qwerty" runat="server" Text=""></asp:Label>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <asp:LinkButton CssClass="dropdown-item" PostBackUrl="adminlogin.aspx" ID="LinkButton_789" runat="server" ToolTip="Only Admin Access">ADMIN LOGIN</asp:LinkButton>
+                                <asp:LinkButton CssClass="dropdown-item"  ID="LinkButton_12345" runat="server" onClick="LinkButton_12345_Click" ToolTip="End Session" OnClientClick="LinkButton_12345_Click">Logout</asp:LinkButton>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>       
+<%--_______________________________________________________________________________________________________________________--%>     
+                    
+                    
+                    
+                    
+<%--_______________________________________________________________________________________________________________________--%>                         
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                     
+                    </asp:ContentPlaceHolder>
+<%--_______________________________________________________________________________________________________________________--%>             
+
+    <%--===================================================below is footer=========================================================================--%>
+           <div class="123" style="width:100%;height:100%;margin-top:5%">
+                <div class = "jumbotron" style="background-color:black;color:White;font-size:medium;">
+                    <div id = "copyright">
+                        <center>
+                           Copyright © 2018 TOPDESK India,Inc. All rights reserved.
+                        </center>
+                    </div>
+                </div>
+            </div>
+     </div>
+      
+
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    </form>
+</body>
+</html>
